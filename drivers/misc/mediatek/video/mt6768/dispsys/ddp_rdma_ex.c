@@ -700,7 +700,7 @@ void rdma_set_ultra_l(unsigned int idx, unsigned int bpp, void *handle,
 	do_div(consume_rate_div_tmp, 100);
 	consume_rate_div = DIV_ROUND_UP((unsigned int)consume_rate_div_tmp, 10);
 
-	DDPMSG("%s, w=%d, h=%d, fps=%d, consume=%ull\n",
+	DDPMSG("%s, w=%d, h=%d, fps=%d, consume=%llu\n",
 		__func__,
 		rdma_golden_setting->dst_width,
 		rdma_golden_setting->dst_height,
@@ -819,7 +819,7 @@ void rdma_set_ultra_l(unsigned int idx, unsigned int bpp, void *handle,
 
 	if (output_valid_fifo_threshold > fifo_valid_size)
 		DDPERR(
-		"RDMA golden setting is invalid!! output_valid_fifo_threshold=%d, fifo_valid_size=%d\n",
+		"%s: RDMA golden setting is invalid!! output_valid_fifo_threshold=%d, fifo_valid_size=%d\n",
 		__func__, output_valid_fifo_threshold, fifo_valid_size);
 
 	DISP_REG_SET(handle, idx * DISP_RDMA_INDEX_OFFSET +
